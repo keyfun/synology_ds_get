@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F8F7E411DB636FE00B2A186 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */; };
 		D0FE573A1DB5308E00375328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE57391DB5308E00375328 /* AppDelegate.swift */; };
 		D0FE573C1DB5308E00375328 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE573B1DB5308E00375328 /* ViewController.swift */; };
 		D0FE573F1DB5308E00375328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FE573D1DB5308E00375328 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
 		D0FE57361DB5308E00375328 /* DSGetLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSGetLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FE57391DB5308E00375328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FE573B1DB5308E00375328 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				D0FE57391DB5308E00375328 /* AppDelegate.swift */,
 				D0FE573B1DB5308E00375328 /* ViewController.swift */,
+				3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */,
 				D0FE573D1DB5308E00375328 /* Main.storyboard */,
 				D0FE57401DB5308E00375328 /* Assets.xcassets */,
 				D0FE57421DB5308E00375328 /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				D0FE573C1DB5308E00375328 /* ViewController.swift in Sources */,
 				D0FE573A1DB5308E00375328 /* AppDelegate.swift in Sources */,
+				3F8F7E411DB636FE00B2A186 /* UserDefaultsUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +511,7 @@
 				D0FE57601DB5308E00375328 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0FE57611DB5308E00375328 /* Build configuration list for PBXNativeTarget "DSGetLiteTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +520,7 @@
 				D0FE57631DB5308E00375328 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D0FE57641DB5308E00375328 /* Build configuration list for PBXNativeTarget "DSGetLiteUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +529,7 @@
 				D0FE57661DB5308E00375328 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

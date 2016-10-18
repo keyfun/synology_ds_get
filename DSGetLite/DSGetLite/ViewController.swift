@@ -27,14 +27,27 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loadSettings()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
+    func loadSettings() {
+        txtAddress.text = UserDefaultsUtils.loadAddress()
+        txtAccount.text = UserDefaultsUtils.loadAccount()
+        txtPassword.text = UserDefaultsUtils.loadPassword()
+    }
+    
     @IBAction func onLogin(sender: UIButton) {
         login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!)
+        
+        // auto cache
+        UserDefaultsUtils.saveAddress(value: txtAddress.text!)
+        UserDefaultsUtils.saveAccount(value: txtAccount.text!)
+        UserDefaultsUtils.savePassword(value: txtPassword.text!)
     }
 
     func login(address:String, account:String, password:String) {
