@@ -54,6 +54,29 @@ class ViewController: UIViewController {
         let loginAPI = "http://%@/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=%@&passwd=%@&session=DownloadStation&format=sid"
         let path = String(format:loginAPI, address, account, password)
         print("path = \(path)")
+        
+        let url:URL = URL(string: path)!
+        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            guard error == nil else {
+                print(error)
+                return
+            }
+            guard let data = data else {
+                print("Data is empty")
+                return
+            }
+            
+//            print("data = \(data)")
+//            print("response = \(response)")
+            
+            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
+            print("json = \(json)")
+            print("success = \(json["success"] as? Bool)")
+            let dataValue = json["data"] as! [String:Any]
+            print("sid = \(dataValue["sid"] as? String)")
+        }
+        
+        task.resume()
     }
     
     func logout() {
