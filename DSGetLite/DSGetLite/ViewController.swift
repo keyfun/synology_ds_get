@@ -9,7 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var txtAddress: UITextField!
+    @IBOutlet weak var txtAccount: UITextField!
+    @IBOutlet weak var txtPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -19,7 +24,28 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    @IBAction func onLogin(sender: UIButton) {
+        login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!)
+    }
 
+    func login(address:String, account:String, password:String) {
+        let loginAPI = "http://%@/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=%@&passwd=%@&session=DownloadStation&format=sid"
+        let path = String(format:loginAPI, address, account, password)
+        print("path = \(path)")
+    }
+    
+    func logout() {
+        
+    }
 
 }
 
