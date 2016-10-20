@@ -25,6 +25,8 @@ class APIManager {
      &password=123
      */
     
+    public var isLogged:Bool = false
+    
     static let sharedInstance : APIManager = {
         let instance = APIManager()
         return instance

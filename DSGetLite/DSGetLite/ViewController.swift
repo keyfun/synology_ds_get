@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var txtAccount: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     
+    private var hasLogged:Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,15 +35,24 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if !APIManager.sharedInstance.isLogged && hasLogged {
+            // auto login
+            onLogin(sender: nil)
+        }
     }
     
     func loadSettings() {
         txtAddress.text = UserDefaultsUtils.loadAddress()
         txtAccount.text = UserDefaultsUtils.loadAccount()
         txtPassword.text = UserDefaultsUtils.loadPassword()
+        
+        if txtAddress.text != "" && txtAccount.text != "" && txtPassword.text != "" {
+            hasLogged = true
+        }
     }
     
-    @IBAction func onLogin(sender: UIButton) {
+    @IBAction func onLogin(sender: UIButton?) {
         // auto cache
         UserDefaultsUtils.saveAddress(value: txtAddress.text!)
         UserDefaultsUtils.saveAccount(value: txtAccount.text!)
