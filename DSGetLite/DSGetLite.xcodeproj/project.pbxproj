@@ -112,12 +112,12 @@
 				3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */,
 				D0F0AE211DB861BF000B8A2C /* APIManager.swift */,
 				D0F0AE231DB86956000B8A2C /* TaskListViewController.swift */,
+				D0F0AE251DB87302000B8A2C /* TaskListResponse.swift */,
+				D0F0AE271DB873A6000B8A2C /* Task.swift */,
 				D0FE573D1DB5308E00375328 /* Main.storyboard */,
 				D0FE57401DB5308E00375328 /* Assets.xcassets */,
 				D0FE57421DB5308E00375328 /* LaunchScreen.storyboard */,
 				D0FE57451DB5308E00375328 /* Info.plist */,
-				D0F0AE251DB87302000B8A2C /* TaskListResponse.swift */,
-				D0F0AE271DB873A6000B8A2C /* Task.swift */,
 			);
 			path = DSGetLite;
 			sourceTree = "<group>";

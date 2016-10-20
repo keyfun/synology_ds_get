@@ -15,7 +15,12 @@ class TaskListViewController: UITableViewController {
         // under status bar
         tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
         
-        APIManager.sharedInstance.getDownloadList()
+        APIManager.sharedInstance.getDownloadList { (isSuccess:Bool, result:TaskListResponse?) in
+            print("isSuccess = \(isSuccess)")
+            if result != nil {
+                print("response = \(result!.toString())")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

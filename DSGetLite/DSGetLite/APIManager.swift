@@ -73,7 +73,7 @@ class APIManager {
         task.resume()
     }
     
-    public func getDownloadList() {
+    public func getDownloadList(onComplete:@escaping (_ isSuccess:Bool, _ result:TaskListResponse?) -> ()) {
         let path = String(format:domain + getDownloadListAPI, address)
         print("path = \(path)")
         
@@ -81,15 +81,19 @@ class APIManager {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 print(error)
+                onComplete(false, nil)
                 return
             }
             guard let data = data else {
                 print("Data is empty")
+                onComplete(false, nil)
                 return
             }
             
             let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
             print("json = \(json)")
+            let response = TaskListResponse(json: json)
+            onComplete(true, response)
         }
         
         task.resume()
