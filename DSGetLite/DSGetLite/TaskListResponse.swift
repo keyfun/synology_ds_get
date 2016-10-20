@@ -64,8 +64,8 @@ class TaskListResponse {
         var str:String = "offset = \(offset) \n"
         str += "total = \(total) \n"
         str += "success = \(success) \n"
-        str += "tasks count = \(tasks?.count) \n"
         if tasks != nil {
+            str += "tasks count = \(tasks!.count) \n"
             for task in tasks! {
                 str += "task = \(task.toString()) \n"
             }
