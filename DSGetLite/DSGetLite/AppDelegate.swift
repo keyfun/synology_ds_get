@@ -46,6 +46,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let urlString = url.absoluteString
         print("urlString = \(urlString)")
         
+        if APIManager.sharedInstance.isLogged {
+            APIManager.sharedInstance.createTask(uri: urlString)
+        } else {
+            AppGlobal.sharedInstance.tmpUri = urlString
+        }
+        
         return false
     }
 

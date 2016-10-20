@@ -61,6 +61,12 @@ class ViewController: UIViewController {
         APIManager.sharedInstance.login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!) { (isLogged) in
             print("[ViewController] isLogged = \(isLogged)")
             self.gotoTaskList()
+            
+            // if has create task before logged, create task after logged
+            if AppGlobal.sharedInstance.tmpUri != "" {
+                APIManager.sharedInstance.createTask(uri: AppGlobal.sharedInstance.tmpUri)
+                AppGlobal.sharedInstance.tmpUri = ""
+            }
         }
     }
     

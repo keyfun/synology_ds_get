@@ -16,14 +16,6 @@ class APIManager {
     private let taskInfoAPI = "/webapi/query.cgi?api=SYNO.API.Info&version=1&method=query&query=SYNO.API.Auth,SYNO.DownloadStation.Task"
     private let getDownloadListAPI = "/webapi/DownloadStation/task.cgi?api=SYNO.DownloadStation.Task&version=1&method=list"
     private let createTaskAPI = "/webapi/DownloadStation/task.cgi" // POST
-    /*
-     api=SYNO.DownloadStation.Task
-     &version=1
-     &method=create
-     &uri=ftps://192.0.0.1:21/test/test.zip
-     &username=admin
-     &password=123
-     */
     
     public var isLogged:Bool = false
     private var sid:String?
@@ -73,6 +65,10 @@ class APIManager {
         task.resume()
     }
     
+    public func logout() {
+        // TODO:
+    }
+    
     public func getDownloadList(onComplete:@escaping (_ isSuccess:Bool, _ result:TaskListResponse?) -> ()) {
         let path = String(format:domain + getDownloadListAPI, address)
         print("path = \(path)")
@@ -96,6 +92,48 @@ class APIManager {
             onComplete(true, response)
         }
         
+        task.resume()
+    }
+    
+    public func createTask(uri:String) {
+        if sid == nil {
+            print("sid is null")
+            return
+        }
+        
+        let path = String(format:domain + createTaskAPI, address)
+        var request = URLRequest(url: URL(string: path)!)
+        request.httpMethod = "POST"
+        
+        /*
+        api=SYNO.DownloadStation.Task
+        &version=1
+        &method=create
+        &uri=ftps://192.0.0.1:21/test/test.zip
+        &username=admin
+        &password=123
+        */
+        let postStringTmp = "uri=%@&api=SYNO.DownloadStation.Task&version=1&method=create&sid=%@"
+        let postString = String(format:postStringTmp, uri, sid!)
+        print("postString = \(postString)")
+        
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(responseString)")
+        }
         task.resume()
     }
 }
