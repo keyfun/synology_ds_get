@@ -42,45 +42,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onLogin(sender: UIButton) {
-        login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!)
-        
         // auto cache
         UserDefaultsUtils.saveAddress(value: txtAddress.text!)
         UserDefaultsUtils.saveAccount(value: txtAccount.text!)
         UserDefaultsUtils.savePassword(value: txtPassword.text!)
-    }
-
-    func login(address:String, account:String, password:String) {
-        let loginAPI = "http://%@/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=%@&passwd=%@&session=DownloadStation&format=sid"
-        let path = String(format:loginAPI, address, account, password)
-        print("path = \(path)")
         
-        let url:URL = URL(string: path)!
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            guard error == nil else {
-                print(error)
-                return
-            }
-            guard let data = data else {
-                print("Data is empty")
-                return
-            }
-            
-//            print("data = \(data)")
-//            print("response = \(response)")
-            
-            let json = try! JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-            print("json = \(json)")
-            print("success = \(json["success"] as? Bool)")
-            let dataValue = json["data"] as! [String:Any]
-            print("sid = \(dataValue["sid"] as? String)")
-        }
-        
-        task.resume()
-    }
-    
-    func logout() {
-        
+        APIManager.sharedInstance.login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!)
     }
 
 }

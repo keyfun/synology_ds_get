@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3F8F7E411DB636FE00B2A186 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */; };
+		D0F0AE221DB861BF000B8A2C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0AE211DB861BF000B8A2C /* APIManager.swift */; };
 		D0FE573A1DB5308E00375328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE57391DB5308E00375328 /* AppDelegate.swift */; };
 		D0FE573C1DB5308E00375328 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE573B1DB5308E00375328 /* ViewController.swift */; };
 		D0FE573F1DB5308E00375328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FE573D1DB5308E00375328 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
+		D0F0AE211DB861BF000B8A2C /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		D0FE57361DB5308E00375328 /* DSGetLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSGetLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FE57391DB5308E00375328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FE573B1DB5308E00375328 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D0FE57391DB5308E00375328 /* AppDelegate.swift */,
 				D0FE573B1DB5308E00375328 /* ViewController.swift */,
 				3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */,
+				D0F0AE211DB861BF000B8A2C /* APIManager.swift */,
 				D0FE573D1DB5308E00375328 /* Main.storyboard */,
 				D0FE57401DB5308E00375328 /* Assets.xcassets */,
 				D0FE57421DB5308E00375328 /* LaunchScreen.storyboard */,
@@ -197,6 +200,11 @@
 					D0FE57351DB5308C00375328 = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.SafariKeychain = {
+								enabled = 0;
+							};
+						};
 					};
 					D0FE57491DB5308E00375328 = {
 						CreatedOnToolsVersion = 8.0;
@@ -265,6 +273,7 @@
 				D0FE573C1DB5308E00375328 /* ViewController.swift in Sources */,
 				D0FE573A1DB5308E00375328 /* AppDelegate.swift in Sources */,
 				3F8F7E411DB636FE00B2A186 /* UserDefaultsUtils.swift in Sources */,
+				D0F0AE221DB861BF000B8A2C /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
