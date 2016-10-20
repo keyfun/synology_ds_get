@@ -58,7 +58,16 @@ class ViewController: UIViewController {
         UserDefaultsUtils.saveAccount(value: txtAccount.text!)
         UserDefaultsUtils.savePassword(value: txtPassword.text!)
         
-        APIManager.sharedInstance.login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!)
+        APIManager.sharedInstance.login(address: txtAddress.text!, account: txtAccount.text!, password: txtPassword.text!) { (isLogged) in
+            print("[ViewController] isLogged = \(isLogged)")
+            self.gotoTaskList()
+        }
+    }
+    
+    func gotoTaskList() {
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "TaskListViewController") as! TaskListViewController
+        self.present(vc, animated:true, completion:nil)
     }
 
 }

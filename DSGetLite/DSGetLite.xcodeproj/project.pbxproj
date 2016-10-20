@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		3F8F7E411DB636FE00B2A186 /* UserDefaultsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */; };
 		D0F0AE221DB861BF000B8A2C /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0AE211DB861BF000B8A2C /* APIManager.swift */; };
+		D0F0AE241DB86956000B8A2C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0AE231DB86956000B8A2C /* TaskListViewController.swift */; };
+		D0F0AE261DB87302000B8A2C /* TaskListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0AE251DB87302000B8A2C /* TaskListResponse.swift */; };
+		D0F0AE281DB873A6000B8A2C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0F0AE271DB873A6000B8A2C /* Task.swift */; };
 		D0FE573A1DB5308E00375328 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE57391DB5308E00375328 /* AppDelegate.swift */; };
 		D0FE573C1DB5308E00375328 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0FE573B1DB5308E00375328 /* ViewController.swift */; };
 		D0FE573F1DB5308E00375328 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0FE573D1DB5308E00375328 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 /* Begin PBXFileReference section */
 		3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsUtils.swift; sourceTree = "<group>"; };
 		D0F0AE211DB861BF000B8A2C /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		D0F0AE231DB86956000B8A2C /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		D0F0AE251DB87302000B8A2C /* TaskListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListResponse.swift; sourceTree = "<group>"; };
+		D0F0AE271DB873A6000B8A2C /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D0FE57361DB5308E00375328 /* DSGetLite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DSGetLite.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FE57391DB5308E00375328 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0FE573B1DB5308E00375328 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,10 +111,13 @@
 				D0FE573B1DB5308E00375328 /* ViewController.swift */,
 				3F8F7E401DB636FD00B2A186 /* UserDefaultsUtils.swift */,
 				D0F0AE211DB861BF000B8A2C /* APIManager.swift */,
+				D0F0AE231DB86956000B8A2C /* TaskListViewController.swift */,
 				D0FE573D1DB5308E00375328 /* Main.storyboard */,
 				D0FE57401DB5308E00375328 /* Assets.xcassets */,
 				D0FE57421DB5308E00375328 /* LaunchScreen.storyboard */,
 				D0FE57451DB5308E00375328 /* Info.plist */,
+				D0F0AE251DB87302000B8A2C /* TaskListResponse.swift */,
+				D0F0AE271DB873A6000B8A2C /* Task.swift */,
 			);
 			path = DSGetLite;
 			sourceTree = "<group>";
@@ -199,7 +208,8 @@
 				TargetAttributes = {
 					D0FE57351DB5308C00375328 = {
 						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 5GBCJ9FE6T;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.SafariKeychain = {
 								enabled = 0;
@@ -273,7 +283,10 @@
 				D0FE573C1DB5308E00375328 /* ViewController.swift in Sources */,
 				D0FE573A1DB5308E00375328 /* AppDelegate.swift in Sources */,
 				3F8F7E411DB636FE00B2A186 /* UserDefaultsUtils.swift in Sources */,
+				D0F0AE261DB87302000B8A2C /* TaskListResponse.swift in Sources */,
 				D0F0AE221DB861BF000B8A2C /* APIManager.swift in Sources */,
+				D0F0AE281DB873A6000B8A2C /* Task.swift in Sources */,
+				D0F0AE241DB86956000B8A2C /* TaskListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,7 +438,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5GBCJ9FE6T;
 				INFOPLIST_FILE = DSGetLite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = keyfun.app.DSGetLite;
@@ -438,7 +452,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 5GBCJ9FE6T;
 				INFOPLIST_FILE = DSGetLite/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = keyfun.app.DSGetLite;
