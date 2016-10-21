@@ -5,7 +5,7 @@ Alternative to Synology Download Station App (ds get)
 1. Login by address, account and password
 2. Cache last logged data in UserDefaults
 3. Auto login if logged before
-4. Support magnet:// deep link <--- this is the main feature i want to enable it back
+4. Create task by support magnet:// deep link <--- this is the main feature i want to enable it back
 5. Show download task list in tableview
 
 ## [Synology Developer Web API]
