@@ -11,8 +11,6 @@ Alternative to Synology Download Station App (ds get)
 ## [Synology Developer Web API]
 
 #### Login
-/webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=admin&passwd=12345&session=DownloadStation&format=cookie
-OR
 /webapi/auth.cgi?api=SYNO.API.Auth&version=2&method=login&account=admin&passwd=12345&session=DownloadStation&format=sid
 
 #### Logout
