@@ -1,4 +1,6 @@
 # synology_ds_get
+[![Travis CI](https://travis-ci.org/keyfun/synology_ds_get.svg?branch=master)](https://travis-ci.org/keyfun/synology_ds_get)
+
 Alternative to Synology Download Station App (ds get) 
 
 ### Current Features
