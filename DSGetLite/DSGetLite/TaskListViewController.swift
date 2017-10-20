@@ -39,7 +39,7 @@ class TaskListViewController: UITableViewController {
         timer = nil
     }
     
-    func refreshList() {
+    @objc func refreshList() {
         APIManager.sharedInstance.getDownloadList { (isSuccess:Bool, result:TaskListResponse?) in
             print("isSuccess = \(isSuccess)")
             if result != nil {
