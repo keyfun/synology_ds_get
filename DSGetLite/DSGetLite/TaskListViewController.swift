@@ -16,7 +16,7 @@ class TaskListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // under status bar
-        tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+        tableView.contentInset = UIEdgeInsets.init(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
 
         // call update list
         refreshList()
