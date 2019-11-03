@@ -10,16 +10,32 @@ import UIKit
 
 class TaskListViewController: UITableViewController {
 
-    private var tasks: Array<Task> = Array<Task>()
+    private var tasks = Array<Task>()
     private var timer: Timer? = nil
+    private var textField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // under status bar
-        tableView.contentInset = UIEdgeInsets.init(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
+
+        textField = UITextField.init(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40))
+        textField.text = ""
+        textField.placeholder = "Input url"
+        textField.textAlignment = .center
+        self.navigationItem.titleView = textField
+
+        let btnAdd = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.add, target: self, action: #selector(self.onTapAdd))
+        self.navigationItem.rightBarButtonItem = btnAdd
 
         // call update list
         refreshList()
+    }
+
+    @objc private func onTapAdd() {
+        print("onTapAdd: \(String(describing: textField.text))")
+        if let uri = textField.text, !uri.isEmpty {
+            APIManager.sharedInstance.createTask(uri: uri)
+            UIPasteboard.general.string = ""
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -31,6 +47,9 @@ class TaskListViewController: UITableViewController {
             selector: #selector(self.refreshList),
             userInfo: nil,
             repeats: true)
+
+        // auto paste clipboard to input field
+        textField.text = UIPasteboard.general.string
     }
 
     override func viewWillDisappear(_ animated: Bool) {
