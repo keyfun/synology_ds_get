@@ -7,11 +7,6 @@
 //
 
 class AppGlobal {
-
-    static let sharedInstance: AppGlobal = {
-        let instance = AppGlobal()
-        return instance
-    }()
-
-    public var tmpUri: String = "" // for cache create task uri before logged
+    static let sharedInstance = AppGlobal()
+    var tmpUri: String = "" // for cache create task uri before logged
 }

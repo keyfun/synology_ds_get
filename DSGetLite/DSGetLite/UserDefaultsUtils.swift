@@ -9,44 +9,44 @@
 import Foundation
 
 final class UserDefaultsUtils {
-    
+
     fileprivate static let kAddress = "address"
     fileprivate static let kAccount = "account"
     fileprivate static let kPassword = "password"
-    
-    fileprivate static let userDefaults:UserDefaults = UserDefaults.standard
-    
+
+    fileprivate static let userDefaults: UserDefaults = UserDefaults.standard
+
     static func loadAddress() -> String {
         return load(kAddress, defaultValue: "")
     }
-    
-    static func saveAddress(value:String) {
+
+    static func saveAddress(value: String) {
         save(kAddress, value: value)
     }
-    
+
     static func loadAccount() -> String {
         return load(kAccount, defaultValue: "")
     }
-    
-    static func saveAccount(value:String) {
+
+    static func saveAccount(value: String) {
         save(kAccount, value: value)
     }
-    
+
     static func loadPassword() -> String {
         return load(kPassword, defaultValue: "")
     }
-    
-    static func savePassword(value:String) {
+
+    static func savePassword(value: String) {
         save(kPassword, value: value)
     }
-    
-    static func save(_ key:String, value:Bool) {
+
+    static func save(_ key: String, value: Bool) {
         userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
-    
-    static func load(_ key:String, defaultValue:Bool) -> Bool {
-        var tmpValue:Bool = false
+
+    static func load(_ key: String, defaultValue: Bool) -> Bool {
+        var tmpValue: Bool = false
         if let value = userDefaults.object(forKey: key) {
             tmpValue = value as! Bool
         } else {
@@ -54,14 +54,14 @@ final class UserDefaultsUtils {
         }
         return tmpValue
     }
-    
-    static func save(_ key:String, value:String) {
+
+    static func save(_ key: String, value: String) {
         userDefaults.set(value, forKey: key)
         userDefaults.synchronize()
     }
-    
-    static func load(_ key:String, defaultValue:String) -> String {
-        var tmpValue:String = ""
+
+    static func load(_ key: String, defaultValue: String) -> String {
+        var tmpValue: String = ""
         if let value = userDefaults.object(forKey: key) {
             tmpValue = value as! String
         } else {

@@ -9,15 +9,15 @@
 import Foundation
 
 class Task {
-    
-    var id:String
-    var size:Int64
-    var status:String
-    var title:String
-    var type:String
-    var username:String
-    
-    init(json: [String:Any]) {
+
+    var id: String
+    var size: Int64
+    var status: String
+    var title: String
+    var type: String
+    var username: String
+
+    init(json: [String: Any]) {
         id = json["id"] as! String
         size = (json["size"] as! NSNumber).int64Value
         status = json["status"] as! String
@@ -25,9 +25,9 @@ class Task {
         type = json["type"] as! String
         username = json["username"] as! String
     }
-    
+
     func toString() -> String {
-        var str:String = "id = \(id), "
+        var str: String = "id = \(id), "
         str += "size = \(size), "
         str += "status = \(status), "
         str += "title = \(title), "
@@ -35,5 +35,5 @@ class Task {
         str += "username = \(username)"
         return str
     }
-    
+
 }

@@ -17,24 +17,17 @@ class APIManager {
     private let getDownloadListAPI = "/webapi/DownloadStation/task.cgi?api=SYNO.DownloadStation.Task&version=1&method=list"
     private let createTaskAPI = "/webapi/DownloadStation/task.cgi" // POST
 
-    public var isLogged: Bool = false
+    public var isLogged = false
     private var sid: String?
     private var address: String = ""
 
-    static let sharedInstance: APIManager = {
-        let instance = APIManager()
-        return instance
-    }()
-
-    init() {
-
-    }
+    static let sharedInstance = APIManager()
 
     public func login(address: String, account: String, password: String, onComplete: @escaping (_ isLogged: Bool) -> ()) {
         let path = String(format: domain + loginAPI, address, account, password)
         print("path = \(path)")
 
-        let url: URL = URL(string: path)!
+        let url = URL(string: path)!
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             guard error == nil else {
                 print(error ?? "")
