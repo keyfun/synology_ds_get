@@ -1,10 +1,5 @@
-language: objective-c
-osx_image: xcode8
-xcode_sdk: iphonesimulator10.0
-
-before_install:
-- rvm get head
-- brew update
+language: swift
+osx_image: xcode9
 
 script:
 - sh build.sh
